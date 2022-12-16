@@ -1,6 +1,7 @@
 const LoginPage = require('../pageobjects/login.page');
 const { faker } = require('@faker-js/faker');
 const authData = require('../data/auth.data');
+const urls = require('../data/urls.data');
 
 describe('Authentication', () => {
   beforeEach(async function () {
@@ -13,9 +14,7 @@ describe('Authentication', () => {
 
   it('verify navigation to login screen', async () => {
     await $('#signInOrRegister').click();
-    await expect(browser).toHaveUrlContaining(
-      'https://dev-mlluudmotpwoldtv.us.auth0.com/login'
-    );
+    await expect(browser).toHaveUrlContaining(urls.auth_route);
   });
 
   it('verify sign up', async () => {
@@ -26,17 +25,17 @@ describe('Authentication', () => {
     //open in the sign up page and enter the credentials
     await LoginPage.open();
     await LoginPage.signUp(emailAddress, password);
-    await expect(browser).toHaveUrlContaining('/products');
+    await expect(browser).toHaveUrlContaining(urls.overview_page_route);
   });
 
   it('verify google auth signup', async () => {
     await LoginPage.googleSignUp();
-    await expect(browser).toHaveUrlContaining('/products');
+    await expect(browser).toHaveUrlContaining(urls.overview_page_route);
   });
 
   it('verify google auth login', async () => {
     await LoginPage.googleSignIn();
-    await expect(browser).toHaveUrlContaining('/products');
+    await expect(browser).toHaveUrlContaining(urls.overview_page_route);
   });
 
   it('verify form errors on empty submission', async () => {
