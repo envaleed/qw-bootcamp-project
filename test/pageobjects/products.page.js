@@ -1,5 +1,4 @@
 const Page = require('./page');
-const productsData = require('../data/products.data');
 
 class ProductsPage extends Page {
   /**
@@ -69,6 +68,10 @@ class ProductsPage extends Page {
   get itemGallery() {
     return $('.css-12qzrsi');
   }
+
+  /**
+   * add item to cart from the product page
+   */
 
   async addItemToCart() {
     await this.addToCartButton.waitForClickable({ timeout: 60000 });

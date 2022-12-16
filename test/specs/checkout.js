@@ -24,6 +24,7 @@ describe('Checkout', () => {
 
   it('verify form errors', async () => {
     /*
+    Submit empty form and check the errors that show up
      */
     await CheckoutPage.submitButton.waitForClickable();
     await CheckoutPage.submitButton.click();
@@ -35,6 +36,9 @@ describe('Checkout', () => {
 
   it('verify successful checkout', async () => {
     /*
+    Perform a full checkout by using data from the faker library
+    to fill out the form then fill the payment form
+    and submit. Check to see if the user sees the receipt afterwards
      */
     const fullName = faker.name.fullName();
     const email = faker.internet.email();
@@ -51,6 +55,8 @@ describe('Checkout', () => {
 
   it('verify customer information on receipt', async () => {
     /*
+    After the user performs a successful checkout, check to see that
+    their email and name are shown (DATA DRIVEN TEST)
      */
     await ProductsPage.open();
     await ProductsPage.addItemToCart();

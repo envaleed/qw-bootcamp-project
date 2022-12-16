@@ -20,6 +20,7 @@ describe('Filter and Sort', () => {
     /*
     Sort the data set in ascending order then apply the filter on the page.
     After that, check each item's prices on the page against the data set.
+    (DATA DRIVEN TEST)
      */
     let productList = productsData.products;
     productList.sort((a, b) => a.price - b.price);
@@ -39,6 +40,7 @@ describe('Filter and Sort', () => {
     /*
     Select the shirt filter then iterate through to ensure only 
     shirts are displayed on the page
+    (DATA DRIVEN TEST)
      */
     await ProductsPage.categoryFilter.selectByAttribute(
       'value',

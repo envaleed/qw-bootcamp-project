@@ -1,5 +1,4 @@
 const Page = require('./page');
-const productsData = require('../data/products.data');
 
 class ProductPage extends Page {
   /**
@@ -44,6 +43,10 @@ class ProductPage extends Page {
   get relatedProductImage() {
     return $('.chakra-aspect-ratio .chakra-image');
   }
+
+  /**
+   * add item to cart from the product home gallery page
+   */
 
   async addItemToCart() {
     await this.addToCartButton.waitForClickable();

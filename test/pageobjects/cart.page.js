@@ -1,5 +1,4 @@
 const Page = require('./page');
-const productsData = require('../data/products.data');
 
 class CartPage extends Page {
   /**
@@ -53,10 +52,18 @@ class CartPage extends Page {
     return $('button [title="Remove item"]');
   }
 
+  /**
+   * add a single item to cart
+   */
+
   async addSingleItemToCart() {
     await this.singleAddToCartButton.waitForDisplayed({ timeout: 60000 });
     await this.singleAddToCartButton.click();
   }
+
+  /**
+   * add 2 items to cart
+   */
 
   async addMultipleItemsToCart() {
     const items = await this.addToCartButton;

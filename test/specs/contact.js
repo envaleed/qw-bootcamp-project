@@ -1,5 +1,4 @@
 const LoginPage = require('../pageobjects/login.page');
-const urls = require('../data/urls.data');
 const ContactPage = require('../pageobjects/contact.page');
 const strings = require('../data/strings.data');
 const auth = require('../data/auth.data');
@@ -19,7 +18,7 @@ describe('Contact', () => {
   });
 
   it('verify form error on submission', async () => {
-    /* Submit empty form and check for errors messages
+    /* Submit empty form and check for errors messages (DATA DRIVEN TEST)
      */
     await ContactPage.sendMessageButton.click();
     const errors = await ContactPage.errorMessages;
@@ -30,6 +29,7 @@ describe('Contact', () => {
 
   it('verify email address error', async () => {
     /* Submit form with incorrect email address then check for the error message
+    (DATA DRIVEN TEST)
      */
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
@@ -50,6 +50,7 @@ describe('Contact', () => {
 
   it('verify navigation to related item', async () => {
     /* Use the faker library to call the fillContactForm method with data then assert that the toast is shown
+    (DATA DRIVEN TEST)
      */
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();

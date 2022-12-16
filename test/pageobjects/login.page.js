@@ -1,9 +1,6 @@
 const Page = require('./page');
 const authData = require('../data/auth.data');
 
-/**
- * sub page containing specific selectors and methods for a specific page
- */
 class LoginPage extends Page {
   /**
    * define selectors using getter methods
@@ -49,8 +46,8 @@ class LoginPage extends Page {
   }
 
   /**
-   * a method to encapsule automation code to interact with the page
-   * e.g. to login using username and password
+   * sign up with email auth by clicking the call to action then entering the information in the
+   * form and submitting
    */
   async signUp(emailAddress, password) {
     await this.signInOrRegisterCTA.click();
@@ -61,6 +58,11 @@ class LoginPage extends Page {
     await this.btnSubmit.click();
   }
 
+  /**
+   * sign in with email auth by clicking the call to action then entering the information in the
+   * form and submitting
+   */
+
   async signIn(emailAddress, password) {
     await this.signInOrRegisterCTA.click();
     await this.inputEmailAddress.waitForClickable();
@@ -69,11 +71,20 @@ class LoginPage extends Page {
     await this.btnSubmit.click();
   }
 
+  /**
+   * triggering form errors by submitting empty form
+   */
+
   async falseSignIn() {
     await this.signInOrRegisterCTA.click();
     await this.btnSubmit.waitForClickable();
     await this.btnSubmit.click();
   }
+
+  /**
+   * sign up with google auth by clicking the call to action then entering the information in the
+   * form and submitting
+   */
 
   async googleSignUp() {
     await this.signInOrRegisterCTA.click();
@@ -86,6 +97,11 @@ class LoginPage extends Page {
     await this.googlePasswordField.setValue(authData.googleAccount.password);
     await this.nextButton.click();
   }
+
+  /**
+   * sign in with google auth by clicking the call to action then entering the information in the
+   * form and submitting
+   */
 
   async googleSignIn() {
     await this.signInOrRegisterCTA.click();

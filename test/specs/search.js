@@ -1,8 +1,6 @@
 const LoginPage = require('../pageobjects/login.page');
-const urls = require('../data/urls.data');
 const strings = require('../data/strings.data');
 const auth = require('../data/auth.data');
-const { faker } = require('@faker-js/faker');
 const ProductsPage = require('../pageobjects/products.page');
 
 describe('Contact', () => {

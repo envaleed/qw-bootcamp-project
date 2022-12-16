@@ -5,15 +5,19 @@ const urls = require('../data/urls.data');
 
 describe('Authentication', () => {
   beforeEach(async function () {
+    /* Open the root url */
     await LoginPage.open();
   });
 
   afterEach(async function () {
+    /* Since the method of authentication is session based, we must kill the
+    session to log out the user */
     await browser.reloadSession();
   });
 
   it('verify navigation to login screen', async () => {
-    await $('#signInOrRegister').click();
+    /* Check that the button navigates to the login screen*/
+    await $(LoginPage.signInOrRegisterCTA).click();
     await expect(browser).toHaveUrlContaining(urls.auth_route);
   });
 
@@ -29,16 +33,22 @@ describe('Authentication', () => {
   });
 
   it('verify google auth signup', async () => {
+    /* Authenticate with google then check if the user is redirected to 
+    the product home page */
     await LoginPage.googleSignUp();
     await expect(browser).toHaveUrlContaining(urls.overview_page_route);
   });
 
   it('verify google auth login', async () => {
+    /* Authenticate with google then check if the user is redirected to 
+    the product home page */
     await LoginPage.googleSignIn();
     await expect(browser).toHaveUrlContaining(urls.overview_page_route);
   });
 
   it('verify form errors on empty submission', async () => {
+    /* Submit the empty form then check to see that each error displayed
+    is correct (DATA DRIVEN TEST) */
     await LoginPage.falseSignIn();
     const errors = await LoginPage.authError;
     for (const error of errors) {

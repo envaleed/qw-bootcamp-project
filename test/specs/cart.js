@@ -5,11 +5,14 @@ const urls = require('../data/urls.data');
 
 describe('Cart', () => {
   before(async function () {
+    /* Authentication */
     await LoginPage.open();
     await LoginPage.googleSignIn();
   });
 
   it('verify remove item from cart', async () => {
+    /* Add item to cart then verify it was removed by
+    checking if the empty cart text is shown */
     await CartPage.open();
     await CartPage.addSingleItemToCart();
     await CartPage.cartItemName.waitForDisplayed();
@@ -21,6 +24,8 @@ describe('Cart', () => {
   });
 
   it('verify cart item', async () => {
+    /* Verify in the cart that the item is correct by adding
+    it first then checking the name and price */
     await CartPage.open();
     await CartPage.addSingleItemToCart();
     await expect(CartPage.cartItemName).toHaveTextContaining(
@@ -34,6 +39,8 @@ describe('Cart', () => {
   });
 
   it('verify navigation to detailed cart', async () => {
+    /* Add item to cart then check if the detailed cart opens
+    when navigated to by clicking the link */
     await CartPage.open();
     await CartPage.addSingleItemToCart();
     await CartPage.viewDetailedCartLink.waitForDisplayed();

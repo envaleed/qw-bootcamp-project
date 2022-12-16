@@ -1,6 +1,9 @@
 const Page = require('./page');
 
 class CheckoutPage extends Page {
+  /**
+   * define selectors using getter methods
+   */
   get submitButton() {
     return $('button[type="submit"]');
   }
@@ -61,6 +64,11 @@ class CheckoutPage extends Page {
     return $('.snipcart-billing-completed__information');
   }
 
+  /**
+   * interact with the payment form iframe and submit the default card details and submit
+   * by switching back to the top level context
+   */
+
   async enterPayment() {
     await this.cardField.waitForClickable({ timeout: 30000 });
     await this.cardField.setValue('4242424242424242');
@@ -69,6 +77,10 @@ class CheckoutPage extends Page {
     await browser.switchToFrame(null);
     await this.submitButton.click();
   }
+
+  /**
+   * fill out form for checkout page
+   */
 
   async fillOutForm(fullName, email, city, province, postalCode) {
     await this.fullName.setValue(fullName);
