@@ -10,6 +10,10 @@ class ProductsPage extends Page {
     return $$('.chakra-stack span.css-1ccau2i');
   }
 
+  get productNames() {
+    return $$('.css-12qzrsi .chakra-text.css-1n64n71');
+  }
+
   get productImage() {
     return $('#product-20 .chakra-aspect-ratio img');
   }
@@ -34,28 +38,12 @@ class ProductsPage extends Page {
     return $('[inputmode="decimal"]');
   }
 
-  get slideItem1() {
-    return $('.thumb[aria-label="slide item 1"]');
+  get search() {
+    return $('#search');
   }
 
-  get slideItem2() {
-    return $('.thumb[aria-label="slide item 2"]');
-  }
-
-  get carouselDot1() {
-    return $('.dot[aria-label="slide item 1"]');
-  }
-
-  get carouselDot2() {
-    return $('.dot[aria-label="slide item 2"]');
-  }
-
-  get selectedSlide() {
-    return $('.slide.selected');
-  }
-
-  get selectedSlideText() {
-    return $('.slide.selected p');
+  get itemGallery() {
+    return $('.css-12qzrsi');
   }
 
   async addItemToCart() {
