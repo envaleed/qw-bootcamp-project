@@ -19,10 +19,8 @@ describe('Contact', () => {
   });
 
   it('verify form error on submission', async () => {
-    /* Click the carousel dot and use
-    data-driven testing to assert against 
-    the src attribute
-    */
+    /* Submit empty form and check for errors messages
+     */
     await ContactPage.sendMessageButton.click();
     const errors = await ContactPage.errorMessages;
     for (const error of errors) {
@@ -31,10 +29,8 @@ describe('Contact', () => {
   });
 
   it('verify email address error', async () => {
-    /* Click the slide thumbnail and use
-    data-driven testing to assert against 
-    the src attribute
-    */
+    /* Submit form with incorrect email address then check for the error message
+     */
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
     const email = faker.random.word();
@@ -53,10 +49,8 @@ describe('Contact', () => {
   });
 
   it('verify navigation to related item', async () => {
-    /* Click the related item and use
-    data-driven testing to assert against 
-    the browser url
-    */
+    /* Use the faker library to call the fillContactForm method with data then assert that the toast is shown
+     */
     const firstName = faker.name.firstName();
     const lastName = faker.name.lastName();
     const email = faker.internet.email();
