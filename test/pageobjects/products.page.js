@@ -10,6 +10,10 @@ class ProductsPage extends Page {
     return $$('.chakra-stack span.css-1ccau2i');
   }
 
+  get checkoutButton() {
+    return $('//div[text()=" Checkout "]');
+  }
+
   get productNames() {
     return $$('.css-12qzrsi .chakra-text.css-1n64n71');
   }
@@ -67,7 +71,7 @@ class ProductsPage extends Page {
   }
 
   async addItemToCart() {
-    await this.addToCartButton.waitForClickable();
+    await this.addToCartButton.waitForClickable({ timeout: 60000 });
     await this.addToCartButton.click();
   }
 

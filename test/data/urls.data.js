@@ -10,4 +10,5 @@ module.exports = {
   quality_hat_model_2:
     'https://images.unsplash.com/photo-1521369909029-2afed882baee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
   quality_truck_hat: '/quality-hat',
+  receipt_url: '/order/',
 };

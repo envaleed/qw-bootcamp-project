@@ -8,4 +8,5 @@ module.exports = {
   valid_search: 'Quality',
   shirt_filter: 'shirt',
   low_high_sort: 'lowToHigh',
+  checkout_form_error: 'This field is required',
 };
