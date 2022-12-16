@@ -6,4 +6,6 @@ module.exports = {
   special_chars_search: '*@(!*',
   numbers_search: '120',
   valid_search: 'Quality',
+  shirt_filter: 'shirt',
+  low_high_sort: 'lowToHigh',
 };

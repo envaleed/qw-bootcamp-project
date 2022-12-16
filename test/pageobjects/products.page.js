@@ -30,6 +30,10 @@ class ProductsPage extends Page {
     return $('a.ytp-title-link');
   }
 
+  get itemPrices() {
+    return $$('.chakra-stack.css-1ieohnc p');
+  }
+
   get addToCartButton() {
     return $('button[data-item-id="quality-hat-model"]');
   }
@@ -38,8 +42,24 @@ class ProductsPage extends Page {
     return $('[inputmode="decimal"]');
   }
 
+  get itemCategories() {
+    return $$('.chakra-stack.css-1ieohnc .css-1ccau2i');
+  }
+
   get search() {
     return $('#search');
+  }
+
+  get sortFilter() {
+    return $('#sort');
+  }
+
+  get categoryFilter() {
+    return $('#category');
+  }
+
+  get filterReset() {
+    return $('#reset');
   }
 
   get itemGallery() {
