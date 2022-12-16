@@ -33,8 +33,16 @@ class ProductPage extends Page {
     return $('.slide.selected');
   }
 
+  get selectedSlideImage() {
+    return $('.slide.selected img');
+  }
+
   get selectedSlideText() {
     return $('.slide.selected p');
+  }
+
+  get relatedProductImage() {
+    return $('.chakra-aspect-ratio .chakra-image');
   }
 
   async addItemToCart() {
