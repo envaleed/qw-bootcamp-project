@@ -20,6 +20,9 @@ npm run wdio
 # runs a specific test suite
 npm run wdio -- --spec <PATH_OF_TEST_FILE>
 
+# runs the allure reporter
+allure serve allure-results && allure open
+
 ```
 
 ## Contributing
