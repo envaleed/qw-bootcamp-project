@@ -9,4 +9,8 @@ module.exports = {
   shirt_filter: 'shirt',
   low_high_sort: 'lowToHigh',
   checkout_form_error: 'This field is required',
+  empty_favorites_heading: 'No favorites added!',
+  empty_favorites_subtext: 'You can add favorites from the home page.',
+  added_to_favourites_text: 'added to favorites',
+  removed_from_favorites_text: 'removed from favorites',
 };
